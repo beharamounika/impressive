@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Behara Mounika Portfolio</title>
+    <style>
+        body {
+            font-family: 'Times New Roman';
+            padding: 0;
+            margin: 0;
+            text-align: justify;
+        }
+
+        h2 {
+            color: darkmagenta;
+            font-family: 'Elephant', calligraphy;
+        }
+
+        header {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            position: relative;
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            overflow-x: auto;
+        }
+
+        th,
+        td {
+            border: 1px solid darkblue;
+            padding: 10px;
+            text-align: center;
+        }
+
+        section {
+            padding: 20px;
+            margin: 10px;
+        }
+
+        footer {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .dropdown {
+            display: inline-block;
+            position: relative;
+        }
+
+        .dropbtn {
+            display: inline-block;
+            padding: 14px 10px;
+            color: white;
+            text-decoration: none;
+            background-color: black;
+            border-radius: 5px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: black;
+            min-width: 160px;
+            box-shadow: lightseagreen;
+            border-radius: 5px;
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: lightseagreen;
+            color: black;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        @media only screen and (max-width: 600px) {
+            body {
+                font-size: 14px;
+                /* Adjust the font size for smaller screens */
+            }
+
+            header {
+                padding: 0.5em 0;
+                /* Reduce padding for smaller screens */
+            }
+        }
+
+        /* PROJECT */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
+            gap: 20px;
+        }
+
+        .project-item {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .project-item img {
+            height: auto;
+            width: 300%;
+            border-radius: 8px;
+        }
+
+        .project-description {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: honeydew;
+            color: black;
+            padding: 10px;
+            border-radius: 8px;
+            display: none;
+            z-index: 1;
+            text-align: justify;
+        }
+
+        .project-item:hover .project-description {
+            display: block;
+        }
+
+        /* certificates */
+        .certificates {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            /* Adjust the minimum and maximum width as needed */
+            gap: 10px;
+            /* Adjust the gap between certificates */
+        }
+
+        .certificates img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            transition: transform 0.2s;
+            /* Add smooth transition effect */
+        }
+
+        .certificates img:hover {
+            transform: scale(1.1);
+            /* Increase size on hover */
+        }
+
+        .certificates a:focus img {
+            outline: 2px solid gold;
+            /* Highlight certificate when focused */
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+
+        .modal img {
+            width: 100%;
+            height: auto;
+        }
+
+        /*Contact Form */
+        .main-content {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+            /* Align items vertically at the start */
+            max-width: 1200px;
+            /* Adjust max-width as needed */
+            margin: 0 auto;
+        }
+
+        .contact-container {
+            width: 45%;
+            /* Adjust width as needed */
+        }
+
+        .contact-form-container {
+            width: 100%;
+            margin-bottom: 20px;
+            /* Add some space between the form and other content */
+        }
+
+
+        form {
+            width: 100%;
+            /* Ensure the form takes the full width of its container */
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: darkblue;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="url"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid blue;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: auto;
+            /* Adjust width as needed */
+        }
+
+        input[type="submit"]:hover {
+            background-color: lightseagreen;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>BEHARA MOUNIKA</h1>
+        <h4>Welcome to my Portfolio!</h4>
+    </header>
+
+    <nav>
+        <div class="dropdown">
+            <a href="#" class="dropbtn">...</a>
+            <div class="dropdown-content">
+                <a href="#" onclick="showSlide('about-me')">About Me</a>
+                <a href="#" onclick="showSlide('Education')">Education</a>
+                <a href="#" onclick="showSlide('KeySkills')">Key Skills</a>
+                <a href="#" onclick="showSlide('Projects')">Projects</a>
+                <a href="#" onclick="showSlide('Internships')">Internships</a>
+                <a href="#" onclick="showSlide('Certifications')">Certifications</a>
+                <a href="#" onclick="showSlide('Contact')">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="about-me" class="slide">
+        <div style="display: flex; align-items: center;">
+            <div style="flex: 1;">
+                <img src="images/MYPIC.jpg" alt="Behara Mounika"
+                    style="width: 250px; height: 300px; border-radius: 8px;">
+            </div>
+            <div style="flex: 2;">
+                <p style="text-align: center; background-color: lavenderblush; color: black; padding: 10px;">
+                    <b><i> *** For optimal presentation and functionality, please view the portfolio in desktop mode,
+                            especially if using smaller screens.</i></b>
+                </p>
+                <br>
+                <h2>About me</h2>
+                <br>
+                <p>"I am a Fresher, and my portfolio showcases the accomplishments and skills developed throughout my
+                    academic journey."</p>
+                <br>
+                <a href="documents/beharamounika .pdf" target="_blank"> <b><i style="color:darkblue;">Download Behara
+                            Mounika's Resume</i></b></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="Education" class="slide hide">
+        <h2>Academic Details</h2>
+        <table>
+            <tr style="color:darkblue; font-family: elephant;font-style: italic;">
+                <th>Qualification</th>
+                <th>University/Board</th>
+                <th>Institute/College</th>
+                <th>Year</th>
+                <th>CGPA</th>
+            </tr>
+            <tr>
+                <td>Bachelor's in Electronics and Communication Engineering</td>
+                <td>Jawaharlal Nehru Technology University Gurazada Vizianagaram</td>
+                <td>Vignan's Institute of Engineering for Women, Visakhapatnam</td>
+                <td>
+                    <pre>2020-24</pre>
+                </td>
+                <td>
+                    <pre><b>7.55</b></pre>
+                    <pre><b>[till 4-1]</b></pre>
+                </td>
+            </tr>
+            <tr>
+                <td>Intermediate</td>
+                <td>Board of Intermediate Education Andhra Pradesh</td>
+                <td>Narayana Junior College</td>
+                <td>
+                    <pre>2018-20</pre>
+                </td>
+                <td>
+                    <pre>9.75</pre>
+                </td>
+            </tr>
+            <tr>
+                <td>Tenth</td>
+                <td>Board of Secondary Education Andhra Pradesh</td>
+                <td>Prasanthi Niketan M.V.V.S High School</td>
+                <td>
+                    <pre>2017-18</pre>
+                </td>
+                <td>
+                    <pre>9.7</pre>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="KeySkills" class="slide hide">
+        <h2>Key Skills</h2>
+        <ul>
+            <h4 style="color:darkblue;font-family: elephant;font-style: italic;">Soft Skills:</h4>
+            <li>Enthusiastic learner</li>
+            <li>Team collaborator</li>
+            <li>Self-motivator</li>
+            <li>Effective communicator</li>
+            <li>Time manager</li>
+            <h4 style="color:darkblue;font-family: elephant;font-style: italic;">Technical Skills:</h4>
+            <li>Fundamentals of Front-end Development : HTML,CSS,JavaScript</li>
+            <li>Core Foundations of Microsoft Office: Word, PowerPoint, Excel</li>
+            <li>Programming Languages: Python[Basics]</li>
+            <li>Introduction to Database Management: SQL</li>
+            <li>Software IDEs: Visual Studio Code, Spyder, MySQL</li>
+            <li>Version Control: GitHub</li>
+        </ul>
+    </section>
+
+
+    <section id="Projects" class="slide hide">
+        <h2>Projects</h2>
+        <div class="project-grid">
+            <div class="project-item" onclick="toggleProject('portfolio')">
+                <img src="images/portfolio.jpg" alt="Portfolio Website">
+                <div class="project-description hide" id="portfolio-desc">
+                    <h4 style="text-align: center; font-family: elephant;">PORTFOLIO WEBSITE</h4>
+                    <p><i>Description:</i></p>
+                    <ul>
+                        <li>Developed an engaging portfolio leveraging HTML, CSS, and JavaScript, along with assistance
+                            from the AI tool ChatGPT</li>
+                        <li>Ensured seamless compatibility across various devices, enhancing user experience and
+                            accessibility.</li>
+                        <li>Showcased skills and achievements effectively, contributing to a professional online
+                            presence.</li>
+                    </ul>
+                    <p><i>Accomplishments:</i></p>
+                    <ul>
+                        <li>Designed and launched a visually appealing portfolio that effectively highlights skills and
+                            accomplishments.</li>
+                        <li>Ensured cross-device compatibility, resulting in a seamless user experience.</li>
+                        <li>Contributed to an enhanced online professional identity through the successful launch of the
+                            portfolio.</li>
+                    </ul>
+                    <p><i>Tools and Techniques:</i></p>
+                    <ul>
+                        <li>Utilized HTML for structuring web pages.</li>
+                        <li>Employed CSS for styling and visual presentation.</li>
+                        <li>Implemented JavaScript to create interactive features, ensuring a dynamic user experience.
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+
+            <div class="project-item" onclick="toggleProject('detection')">
+                <img src="images/detection.jpg" alt="Edge detection of Diabetic Retinopathy">
+                <div class="project-description hide" id="detection-desc">
+                    <h4 style="text-align: center; font-family: elephant;">EDGE DETECTION OF DIABETIC RETINOPATHY IN
+                        FUNDUS IMAGES</h4>
+                    <p><i>Description:</i></p>
+                    <p>Conducted research and Implemented an edge detection algorithm specifically tailored for Diabetic
+                        Retinopathy
+                        Fundus Images, aiming to enhance the identification of critical features within the images.</p>
+                    <p><i>Accomplishments:</i></p>
+                    <ul>
+                        <li>Successfully applied edge detection techniques to Diabetic Retinopathy Fundus Images for
+                            improved analysis.</li>
+                        <li>Contributed to the field of medical image processing by enhancing the identification of
+                            relevant edges in
+                            retinal images.</li>
+                        <li>Implemented a solution that aids in the early detection and assessment of Hard Exudates
+                            Diabetic Retinopathy.</li>
+                    </ul>
+                    <p><i>Tools and Techniques:</i></p>
+                    <ul>
+                        <li>Utilized image processing techniques for edge detection.</li>
+                        <li>Applied algorithms tailored to the characteristics of Diabetic Retinopathy Fundus Images.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="project-item" onclick="toggleProject('dc')">
+                <img src="images/dc.jpg" alt="Digital Clock">
+                <div class="project-description hide" id="dc-desc">
+                    <h4 style="text-align: center; font-family: elephant;">DIGITAL CLOCK</h4>
+                    <p><i>Description:</i></p>
+                    <p>Developed a digital clock independently, leveraging HTML, CSS, and JavaScript, along with
+                        assistance from the AI tool ChatGPT, to offer users an accurate and user-friendly time display.
+                    </p>
+                    <p><i>Accomplishments:</i></p>
+                    <ul>
+                        <li>Implemented precise timekeeping functionality for the digital clock.</li>
+                        <li>Designed a clean and intuitive user interface using CSS.</li>
+                        <li>Successfully resolved challenges related to accurate time display.</li>
+                    </ul>
+                    <p><i>Tools and Techniques:</i></p>
+                    <ul>
+                        <li>Utilized HTML for creating the structure of the digital clock.</li>
+                        <li>Employed CSS for styling, ensuring a visually pleasing layout.</li>
+                        <li>Implemented JavaScript for dynamic and interactive timekeeping features.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="project-item" onclick="toggleProject('calci')">
+                <img src="images/calci.jpg" alt="Simple Calculations">
+                <div class="project-description hide" id="calci-desc">
+                    <h4 style="text-align: center;font-family: elephant;">SIMPLE CALULATOR</h4>
+                    <p><i>Description:</i></p>
+                    <p>Individually developed an interactive calculator, leveraging HTML, CSS, and JavaScript, along
+                        with assistance from the AI tool ChatGPT to facilitate precise
+                        calculations in a user-friendly manner.</p>
+                    <p><i>Accomplishments:</i></p>
+                    <ul>
+                        <li>Implemented accurate and responsive calculation functionality for the calculator.</li>
+                        <li>Designed an intuitive user interface using CSS to enhance usability.</li>
+                        <li>Successfully completed the project, delivering a functional and efficient calculator.</li>
+                    </ul>
+                    <p><i>Tools and Techniques:</i></p>
+                    <ul>
+                        <li>Utilized HTML for creating the structure of the calculator.</li>
+                        <li>Employed CSS for styling, ensuring a visually pleasing and user-friendly layout.</li>
+                        <li>Implemented JavaScript for dynamic and interactive calculation features.</li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="project-item" onclick="toggleProject('typing')">
+                <img src="images/ty.jpg" alt="Typing Game">
+                <div class="project-description hide" id="typing-desc">
+                    <h4 style="text-align: center;font-family: elephant;">TYPING GAME USING PYTHON</h4>
+                    <p><i>Description:</i></p>
+                    <p>Programmed a typing game in Python using the Spyder IDE, aimed at providing an energizing and
+                        educational
+                        experience. The game measures typing accuracy, speed, and error count to enhance users' typing
+                        skills.</p>
+                    <p><i>Accomplishments:</i></p>
+                    <ul>
+                        <li>Scripted a dynamic and engaging typing game to create an enjoyable learning environment.
+                        </li>
+                        <li>Implemented features for measuring typing accuracy, speed, and error count, providing
+                            valuable
+                            performance metrics.</li>
+                        <li>Contributed to the educational aspect of the project, making it a tool for users to enhance
+                            their
+                            typing proficiency.</li>
+                    </ul>
+                    <p><i>Tools and Techniques:</i></p>
+                    <ul>
+                        <li>Utilized Python programming language.</li>
+                        <li>Developed the project within the Spyder IDE for Python.</li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="project-item" onclick="toggleProject('todolist')">
+                <img src="images/todo.jpg" alt="TO DO LIST">
+                <div class="project-description hide" id="todolist-desc">
+                    <h4 style="text-align: center;font-family: elephant;">TO DO LIST</h4>
+                    <p><i>Description:</i></p>
+                    <p>Singularly designed and implemented an efficient to-do list leveraging HTML, CSS, and JavaScript,
+                        along with assistance from the AI tool ChatGPT to simplify
+                        task management with user-friendly features.</p>
+                    <p><i>Accomplishments:</i></p>
+                    <ul>
+                        <li>Developed a streamlined to-do list with easy task addition, deletion, and tracking
+                            functionalities.</li>
+                        <li>Designed an intuitive user interface using CSS for enhanced user experience.</li>
+                        <li>Successfully completed the project, delivering a functional and effective to-do list.</li>
+                    </ul>
+                    <p><i>Tools and Techniques:</i></p>
+                    <ul>
+                        <li>Utilized HTML for creating the structure of the to-do list.</li>
+                        <li>Employed CSS for styling, ensuring a clear and user-friendly layout.</li>
+                        <li>Implemented JavaScript for dynamic and interactive task management features.</li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="project-item" onclick="toggleProject('lednoticeboard')">
+                <img src="images/esi.jpg" alt="LED NoticeBoard">
+                <div class="project-description hide" id="lednoticeboard">
+                    <h4 style="text-align: center;font-family: elephant;">BLUETOOTH CONTROLLED LED NOTICEBOARD</h4>
+                    <p><i>Description:</i></p>
+                    <p>Collaborated with a team to develop a Bluetooth Controlled LED Notice Board, a project aimed at
+                        providing a dynamic and remotely controlled display for messages or announcements. The system
+                        allows
+                        users to update content on the LED board wirelessly using Bluetooth technology.</p>
+                    <p><i>Accomplishments:</i></p>
+                    <ul>
+                        <li>Collaborated with team members to design a Bluetooth-enabled LED notice board for seamless
+                            remote
+                            communication.</li>
+                        <li>Contributed to the development of the system's firmware, enabling wireless data transfer.
+                        </li>
+                        <li> Engineered a Bluetooth Controlled LED Notice Board with integrated greetings, real-time
+                            temperature
+                            updates, and precise date and day displays.</li>
+                    </ul>
+                    <p><i>Tools and Techniques:</i></p>
+                    <ul>
+                        <li>Utilized arduino IDE software programming for the LED board's firmware.</li>
+                        <li>Integrated Bluetooth technology to enable remote communication.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="Internships" class="slide hide">
+        <h2>Internships</h2>
+        <h4 style="color:darkblue;font-family: elephant;font-style: italic;">Python Full Stack</h4>
+        <ul>
+            <li>Participated in a virtual internship at KodNest from March 16 to April 21, 2024.</li>
+            <li>Acquired proficiency in using Visual Studio Code for coding tasks.</li>
+            <li>Developed interactive web pages using HTML, demonstrating an understanding of structure and semantics.
+            </li>
+            <li>Utilized various CSS techniques, including inline, internal, and external styles, for effective styling.
+            </li>
+            <li>Implemented dynamic behavior on web pages using JavaScript, thereby enhancing user interactivity.</li>
+            <li>Gained practical experience in creating databases in MySQL.</li>
+            <li>Understood the pivotal role of Database Management Systems (DBMS) in managing and maintaining data
+                integrity and security.</li>
+        </ul>
+        <br>
+
+        <h4 style="color:darkblue;font-family: elephant;font-style: italic;">Python Masterclass</h4>
+        <ul>
+            <li>Participated in a virtual internship at Pantech e-learning - APSSDC from December 21, 2022, to January
+                22, 2023.</li>
+            <li>Explored foundational concepts in Python, including variables, data types, and basic syntax.</li>
+            <li>Mastered control flow principles, including loops and conditional statements, in Python.</li>
+            <li>Studied essential libraries such as Pandas, NumPy, and Matplotlib.</li>
+            <li>Applied the learned libraries effectively in practical projects.</li>
+        </ul>
+        <br>
+
+        <h4 style="color:darkblue;font-family: elephant;font-style: italic;">Embedded System</h4>
+        <ul>
+            <li> Inhouse Intern at Indo German Institute of Advanced Technology from August 1 to November 26, 2022.</li>
+            <li>Collaborated as a team member in the exploration of:</li>
+            <pre>
+                          - Sensors
+                          - LED's
+                          - Arduino Uno
+                          - Differences between microprocessor and microcontroller
+                          - Types of switches</pre>
+            <li>Engineered a Bluetooth Controlled LED Notice Board project with integrated features:</li>
+            <pre>
+                          - Greetings display
+                          - Real-time temperature updates
+                          - Precise date and day displays
+                          - Utilized P10 LED display technology
+                          - Acquired knowledge of protocols related to Bluetooth communication during the internship.   
+                    </pre>
+            <br>
+    </section>
+
+
+    <section id="Certifications" class="slide hide">
+        <h2>Certifications</h2>
+        <p style="text-align: center; background-color:lavenderblush; color: black;"><b><i>*** To view certificate
+            click on the image.</i></b></p>
+        <div class="certificates">
+            <a href="images/PFS.jpg" target="_blank"><img src="images/PFSI.jpg" alt="PYTHON FULL STACK"></a>
+            <a href="images/MsExcel.jpg" target="_blank"><img src="images/EXCEL.jpg" alt="MS EXCEL"></a>
+            <a href="images/MSWord.jpg" target="_blank"><img src="images/WORD.jpg" alt="MS WORD"></a>
+            <a href="images/ppt.jpg" target="_blank"><img src="images/MSPPT.jpg" alt="MS POWERPOINTPRESENTATION"></a>
+            <a href="images/research.jpg" target="_blank"><img src="images/RE.jpg" alt="IEEE PRESENTATION"></a>
+            <a href="images/PMC.jpeg" target="_blank"><img src="images/mc.jpg" alt="PYTHON MASTERCLASS"></a>
+            <a href="images/TCS_NQT_IT.jpg" target="_blank"><img src="images/TCSNQT.jpg" alt="TCS NQT SCORE CARD"></a>
+            <a href="images/JSProjects.jpg" target="_blank"><img src="images/JSP.jpg" alt="JAVASCRIPT PROJECTS"></a>
+            <a href="images/PYTHON_BASICS.jpg" target="_blank"><img src="images/BASICS.jpg" alt="BASICS OF PYTHON"></a>
+            <a href="images/LS.jpg" target="_blank"><img src="images/LSP.jpg" alt="LIFE SKILLS PROGRAM"></a>
+            <a href="images/ES.jpg" target="_blank"><img src="images/led.jpg" alt="EMBEDDED SYSTEM"></a>
+            <a href="images/typing.jpg" target="_blank"><img src="images/typ.jpg" alt="TYPING"></a>
+            <a href="images/Abacus.jpg" target="_blank"><img src="images/AB.jpg" alt="ABACUS"></a>
+        </div>
+    </section>
+    <section id="Contact" class="slide hide">
+        <h2>Contact Details</h2>
+        <div class="main-content">
+            <div class="contact-container">
+                <div class="contact-form-container">
+                    <form action="mailto:mounikabehara4469@gmail.com" method="get" enctype="text/plain">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" placeholder="BEHARA MOUNIKA" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" placeholder="mounikabehara4469@gmail.com"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="linkedin">LinkedIn:</label>
+                            <input type="url" id="linkedin" name="linkedin"
+                                placeholder="https://www.linkedin.com/in/behara-mounika" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone No.:</label>
+                            <input type="tel" id="phone" name="phone" placeholder="6281356140" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message:</label>
+                            <textarea id="message" name="message" rows="4" cols="50" required></textarea>
+                        </div>
+                        <p style="text-align: center; background-color: lavenderblush; color: black;">
+                            <b><i> *** If the form submission fails, feel free to contact me directly using the provided
+                                    contact details in the placeholder.</i></b>
+                        </p>
+                        <div class="form-group">
+                            <input type="submit" value="Submit">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <p>&copy; 2024 Behara Mounika. All rights reserved.</p>
+        </footer>
+    </section>
+
+    <script>
+        function showSlide(slideId) {
+            var slides = document.querySelectorAll('section');
+            slides.forEach(function (slide) {
+                if (slide.id === slideId) {
+                    slide.style.display = 'block';
+                } else {
+                    slide.style.display = 'none';
+                }
+            });
+        }
+        showSlide('about-me');
+
+        function toggleMenu() {
+            var nav = document.querySelector('nav');
+            nav.style.display = (nav.style.display === 'none' || nav.style.display === '') ? 'block' : 'none';
+        }
+
+    </script>
+</body>
+
+</html>
